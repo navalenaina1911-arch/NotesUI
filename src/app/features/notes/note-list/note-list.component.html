@@ -1,0 +1,30 @@
+<div *ngIf="notes().length; else empty" class="notes-grid">
+
+  <div class="note-card" *ngFor="let n of notes()">
+
+    <div class="note-header">
+      <h3>{{ n.title }}</h3>
+    </div>
+
+    <p class="note-content">
+      {{ n.content }}
+    </p>
+
+    <div class="note-footer">
+      <small>
+        {{ n.createdAt | date:'short' }}
+      </small>
+
+      <div class="note-actions">
+        <button class="edit-btn" (click)="edit.emit(n)">✏️</button>  <!-- ✅ emit directly -->
+        <button class="delete-btn" (click)="onDelete(n)">🗑️</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #empty>
+  <div class="empty">
+    📝 No notes found
+  </div>
+</ng-template>
