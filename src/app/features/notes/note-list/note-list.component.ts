@@ -87,7 +87,7 @@ loading = this.notesState.loading;   // signal — use in template as loading()
 showForm = false;
 editingNote: Note | null = null;
   ngOnInit(): void {
-   // this.loadNotes();
+   this.loadNotes();
   }
   private loadNotes(): void {
     this.notesState.setLoading(true);
